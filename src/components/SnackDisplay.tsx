@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import tw from "twin.macro"
 import { Snack } from "./common"
 import unescape from "lodash.unescape"
@@ -20,27 +20,31 @@ const SnackTitle = tw.div`
 export default function SnackDisplay({ snack }: { snack: Snack }) {
   const { name, id } = snack
   const controls = useAnimation()
+  const [loaded, setLoaded] = useState<boolean>(false)
 
   const sequence = async () => {
-    controls.start({
-      scale: [0.25, 1],
-      transition: {
-        duration: .25
-      }
-    })
-    controls.start({
-      rotate: [0, 1, -1, 1, -1, 1, 0, 0, 0],
-      transition: {
-        delay: 2,
-        repeat: Infinity,
-        duration: 4
-      },
-    })
+    if (loaded) {
+      console.log("Loaded")
+      controls.start({
+        scale: [0.25, 1],
+        transition: {
+          duration: .25
+        }
+      })
+      controls.start({
+        rotate: [0, 1, -1, 1, -1, 1, 0, 0, 0],
+        transition: {
+          delay: 2,
+          repeat: Infinity,
+          duration: 4
+        }
+      })
+    }
   }
 
   useEffect(() => {
     sequence()
-  }, [snack])
+  }, [snack, loaded])
 
 
   return (
@@ -53,6 +57,7 @@ export default function SnackDisplay({ snack }: { snack: Snack }) {
         alt="name"
         src={`/${id}.png`}
         animate={controls}
+        onLoad={() => setLoaded(true)}
 
 
       />
