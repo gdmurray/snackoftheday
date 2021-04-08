@@ -1,26 +1,54 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "snackoftheday",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Whats the Snack of the Day?",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Greg Murray",
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
+    "@types/lodash.unescape": "^4.0.6",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "dayjs": "^1.10.4",
+    "framer-motion": "^4.1.3",
     "gatsby": "^3.2.1",
     "gatsby-plugin-gatsby-cloud": "^2.2.0",
+    "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-image": "^1.2.0",
     "gatsby-plugin-manifest": "^3.2.0",
     "gatsby-plugin-offline": "^4.2.0",
+    "gatsby-plugin-postcss": "^4.2.0",
     "gatsby-plugin-react-helmet": "^4.2.0",
     "gatsby-plugin-sharp": "^3.2.0",
+    "gatsby-plugin-typescript": "^3.2.0",
     "gatsby-source-filesystem": "^3.2.0",
     "gatsby-transformer-sharp": "^3.2.0",
+    "lodash.unescape": "^4.0.1",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.1",
+    "postcss": "^8.2.9",
     "prop-types": "^15.7.2",
+    "puppeteer": "^8.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "sanitize-html": "^2.3.3"
   },
   "devDependencies": {
-    "prettier": "2.2.1"
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "@types/react-helmet": "^6.1.0",
+    "autoprefixer": "^10.2.5",
+    "chalk": "^4.1.0",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "gatsby-plugin-emotion": "^6.2.0",
+    "node-html-parser": "^3.1.3",
+    "prettier": "2.2.1",
+    "tailwindcss": "^2.1.1",
+    "twin.macro": "^2.3.2"
   },
   "keywords": [
     "gatsby"
@@ -33,7 +61,12 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "yarn run type-check && yarn run lint",
+    "lint": "eslint . --ext ts --ext tsx",
+    "type-check": "tsc --pretty --noEmit",
+    "graphql:codegen": "graphql codegen",
+    "graphql:coverage": "graphql coverage",
+    "graphql:validate": "graphql validate"
   },
   "repository": {
     "type": "git",
