@@ -6,7 +6,7 @@ import { useAnimation } from "framer-motion"
 import { motion } from "framer-motion"
 
 const SnackWrapper = tw.div`
-  mt-28
+  mt-16
 `
 
 const SnackTitle = tw.div`
