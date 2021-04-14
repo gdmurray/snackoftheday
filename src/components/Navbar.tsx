@@ -51,7 +51,7 @@ const RandomSnack = () => {
 }
 
 const NavigationBar = tw.div`
-  w-screen px-5 py-4
+  px-5 py-4
   bg-indigo-600
   dark:bg-coolGray-900
   shadow-md
