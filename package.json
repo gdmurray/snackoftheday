@@ -26,7 +26,7 @@
     "lodash.unescape": "^4.0.1",
     "nedb": "^1.8.0",
     "node-fetch": "^2.6.1",
-    "postcss": "^8.2.9",
+    "postcss": "^8.2.10",
     "prop-types": "^15.7.2",
     "puppeteer": "^8.0.0",
     "react": "^17.0.1",
